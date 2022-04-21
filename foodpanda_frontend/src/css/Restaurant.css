@@ -1,0 +1,31 @@
+
+.restaurant {
+    list-style: none;
+    /* align-items: left; */
+    width: 97.5%;
+    margin: 5px 5px;
+    border: 2px solid #f4f4f4;
+    border-radius: 5px;
+    padding: 10px ;
+    cursor: pointer;
+    min-width: 900px;
+}
+
+.restaurant-component {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: inherit;
+    height: 33px;
+    width: 50%;
+    margin-right: 0px;
+    color:black;
+}
+
+.price-component {
+    text-align: right;
+    margin-right: 0px;
+    font-size:12px;
+}
+

@@ -1,0 +1,79 @@
+.welcome-page {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('./../images/images.jpg');
+    background-size: cover;
+}
+
+.welcome-texts {
+    /* margin-top: 23vh; */
+    /* margin-bottom: 16vh; */
+    text-align: center;
+}
+
+.logo-welcome-page {
+    content: url('./../images/logo.png'); 
+    place-content: first;
+    float: left;
+    width: 20%; 
+    margin-top: 4px;
+    margin-top: 23vh;
+}
+
+.logo-text-welcome-page { 
+    margin-top: 26vh;
+    padding-top: 3px;
+    padding-bottom: 0px;
+    color: white;
+    font-size: 76px;
+    font-weight: 550;
+    text-shadow: 2px 2px #000;
+    float: right;
+    width: calc(100% - 22%)
+}
+
+.welcome-form {
+    width: 50%;
+    margin-top: 0;
+    max-width: 400px;
+}
+
+.btn {
+    /* display: flex;
+    justify-content: center;
+    margin: 10px; */
+
+    display: inline-block;
+    background: #fff;
+    color: grey;
+    border: none;
+    padding: 10px 20px;
+    /* margin: 5px; */
+    border-radius: 3px;
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: inherit;
+    height: 40px
+}
+
+.btn:hover {
+    background: grey;
+    color: #fff;
+}
+
+#btn-customer{
+    float: center;
+    width: 100%;
+    margin-top: 30px;
+}
+  
+#btn-admin{
+    float: center;
+    width: 100%;
+    margin-top: 30px;
+}

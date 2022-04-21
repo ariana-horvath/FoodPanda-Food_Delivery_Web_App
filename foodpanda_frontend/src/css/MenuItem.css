@@ -1,0 +1,11 @@
+
+.category-title {
+    display: inline-block;
+    text-decoration: underline;
+    font-size: 22px;
+    font-family: inherit;
+    height: 33px;
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 0px;
+}

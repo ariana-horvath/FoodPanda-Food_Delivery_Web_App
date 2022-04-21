@@ -1,0 +1,56 @@
+
+.order {
+    list-style: none;
+    /* align-items: left; */
+    width: 97.5%;
+    margin: 5px 5px;
+    border: 2px solid #f4f4f4;
+    border-radius: 5px;
+    padding: 10px ;
+    cursor: pointer;
+    min-width: 900px;
+}
+
+.order-component {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: inherit;
+    height: 33px;
+    width: 20%;
+    margin-right: 0px;
+}
+
+.status-component {
+    text-align: right;
+    margin-right: 0px;
+    float:right;
+}
+
+.btn-component-order{
+    /* display: flex;
+    justify-content: center;
+    margin: 10px; */
+    /* display: inline-block; */
+    background: #d493ae;
+    color: #000000;
+    border: none;
+    /* margin: 5px; */
+    border-radius: 3px;
+    border: 2px solid lightgrey;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: inherit;
+    height: 33px;
+    width: 30%;
+    margin-right: 10px;
+    float: right;
+}
+
+.btn-component-order:hover {
+    background: #8d6274;
+    color: #fff;
+}
+

@@ -1,0 +1,98 @@
+
+.orders-admin-page {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: left;
+    background-image: url('./../images/images.jpg');
+    background-size: cover;
+}
+
+/* .restaurant-title { 
+    padding-top: 7px;
+    padding-left: 2px;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-weight: 550;
+    text-shadow: 2px 2px #000;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+} */
+
+.order-label {
+    padding-top: 7px;
+    padding-left: 30px;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    font-weight: 550;
+    text-shadow: 2px 2px #000;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+}
+
+.container {
+    overflow-x: auto;
+    /* max-height: 100vh; */
+    margin-bottom: 50px;
+    list-style: none;
+    /* align-items: left; */
+    width: 96%;
+    margin: 10px 20px;
+    border: 2px solid #f4f4f4;
+    border-radius: 5px;
+    padding: 10px ;
+    cursor: pointer;
+    /* min-width: 900px; */
+}
+
+.container::-webkit-scrollbar{
+    display: none;
+}
+
+.searchbar2 {
+    align-items: right; 
+    float: right;  
+    padding: 10px; 
+    font-family: inherit;
+}
+
+/* Style the search field */
+.searchbar2 input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: right;
+    width: 25%;
+    background: #f0d8e3;
+    font-family: inherit;
+    height: 20px;
+  }
+  
+  /* Style the submit button */
+.searchbar2 button {
+    float: right;
+    width: 5%;
+    padding: 10px;
+    background: #d493ae;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+.searchbar2 button:hover {
+    background: #8d6274;
+  }
+  
+  /* Clear floats */
+  .searchbar2::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
