@@ -46,6 +46,13 @@ public class Restaurant {
         this.admin = admin;
     }
 
+    public Restaurant(String name, String location, Admin admin, List<DeliveryZone> deliveryZones) {
+        this.name = name;
+        this.location = location;
+        this.admin = admin;
+        this.deliveryZones = deliveryZones;
+    }
+
     public Restaurant() {
     }
 

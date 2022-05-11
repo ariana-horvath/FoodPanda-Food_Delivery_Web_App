@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"app.foodpanda"},{"l":"app.foodpanda.controller"},{"l":"app.foodpanda.dto"},{"l":"app.foodpanda.model"},{"l":"app.foodpanda.repository"},{"l":"app.foodpanda.service"}];updateSearchResults();

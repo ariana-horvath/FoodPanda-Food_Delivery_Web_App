@@ -10,12 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * The type Category service. Used for finding all categories.
+ */
 @Service
 public class CategoryService {
 
     @Autowired
     private CategoryRepository categoryRepository;
 
+    /**
+     * Find all categories from the database.
+     *
+     * @return list of categories
+     */
     public List<CategoryDTO> findAll() {
         List<CategoryDTO> categoryDTOS = new ArrayList<>();
         for(Category c : categoryRepository.findAll()) {

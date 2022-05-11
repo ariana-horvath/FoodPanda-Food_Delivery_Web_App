@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactToPrint from 'react-to-print';
 import "./../css/AdminMainPage.css"; 
 import HeaderAdmin from "./HeaderAdmin";
 import { useState, useEffect } from 'react'
@@ -10,6 +11,7 @@ const AdminMainPage = () => {
     const admin = state.admin
     const restaurant = state.restaurant
     const [menuItems, setMenuItems] = useState([])
+    var componentRef
     
     const fetchMenuItems = async () => {
         const response = await fetch(`http://localhost:8080/foodpanda/foods/${restaurant}`)
@@ -32,14 +34,17 @@ const AdminMainPage = () => {
             <HeaderAdmin admin={admin} restaurant={restaurant}/>
             <label className='restaurant-title'>{restaurant}</label>
             <label className='menu-label'>Menu</label>
-
-            <div className = 'container'>
+            <div ref={(response) => (componentRef = response)} className = 'container' id='menu'>
                 {menuItems.map((menuItem) => (
                     <MenuItem 
                         menuItem={menuItem}
                     />
                 ))}
             </div>
+            <ReactToPrint
+            content={() => componentRef}
+            trigger={() => <button className="btn-save-pdf">Export as PDF</button>}
+            />
         </div>
     )
 }

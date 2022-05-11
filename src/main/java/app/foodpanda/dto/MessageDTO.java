@@ -25,4 +25,20 @@ public class MessageDTO {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == this) {
+            return true;
+        }
+
+        if (!(o instanceof MessageDTO)) {
+            return false;
+        }
+
+        MessageDTO m = (MessageDTO) o;
+
+        return m.success == success && (message.compareTo(m.message) == 0);
+    }
 }

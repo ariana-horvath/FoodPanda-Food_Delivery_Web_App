@@ -10,6 +10,8 @@ import app.foodpanda.model.Restaurant;
 import app.foodpanda.repository.CategoryRepository;
 import app.foodpanda.repository.FoodRepository;
 import app.foodpanda.repository.RestaurantRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type Food service. Used for saving a food or generating the menu of a restaurant as a list of foods.
+ *
+ * @author Ariana Horvath
+ */
 @Service
 public class FoodService {
 
@@ -29,26 +36,53 @@ public class FoodService {
     @Autowired
     private RestaurantService restaurantService;
 
+    private static Logger logger = LogManager.getLogger(RestaurantService.class);
+
+    /**
+     * Save a new food to the database.
+     *
+     * @param foodDTO the food DTO
+     * @return message DTO, containing success boolean and a message
+     */
     public MessageDTO save(FoodDTO foodDTO) {
         Restaurant restaurant = restaurantRepository.findByName(foodDTO.getRestaurant());
-        if (restaurant == null)
-            return new MessageDTO(false, "Restaurant "+ foodDTO.getRestaurant() + " not existent!");
+        if (restaurant == null) {
+            logger.error("Restaurant " + foodDTO.getRestaurant() + " not existent.");
+            return new MessageDTO(false, "Restaurant " + foodDTO.getRestaurant() + " not existent!");
+        }
 
         Category category = categoryRepository.findByName(foodDTO.getCategory());
-        if (category == null)
-            return new MessageDTO(false, "Category "+ foodDTO.getCategory() + "not existent!");
+        if (category == null) {
+            logger.error("Category " + foodDTO.getCategory() + "not existent.");
+            return new MessageDTO(false, "Category " + foodDTO.getCategory() + "not existent!");
+        }
 
         restaurantService.addCategory(foodDTO.getRestaurant(), new CategoryDTO(foodDTO.getCategory()));
 
         Food food = new Food(foodDTO.getName(), foodDTO.getPrice(), foodDTO.getDescription(), category, restaurant);
         foodRepository.save(food);
+        logger.info("Food " + food.getName() + " successfully added.");
         return new MessageDTO(true, "Food successfully added!");
     }
 
+    /**
+     * Food to food DTO, creates a food DTO from a food object.
+     *
+     * @param food the food
+     * @return food DTO
+     */
     public FoodDTO foodToDTO(Food food) {
-        return new FoodDTO(food.getName(), food.getDescription(), food.getPrice(), food.getCategory().getName(), food.getRestaurant().getName());
+        return new FoodDTO(food.getName(), food.getDescription(), food.getPrice(), food.getCategory().getName(),
+                           food.getRestaurant().getName());
     }
 
+    /**
+     * Generate menu list for a specific restaurant as a list of menu DTOs, which contains a category string and a list
+     * of food DTOs.
+     *
+     * @param restaurantName the restaurant name
+     * @return the list of menu item DTOs
+     */
     public List<MenuItemDTO> generateMenu(String restaurantName) {
         Restaurant restaurant = restaurantRepository.findByName(restaurantName);
         List<MenuItemDTO> menuItemDTOS = new ArrayList<>();

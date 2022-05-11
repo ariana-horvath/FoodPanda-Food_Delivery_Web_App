@@ -1,0 +1,6 @@
+app.foodpanda
+app.foodpanda.controller
+app.foodpanda.dto
+app.foodpanda.model
+app.foodpanda.repository
+app.foodpanda.service

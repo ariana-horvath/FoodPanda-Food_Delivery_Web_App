@@ -1,5 +1,6 @@
 package app.foodpanda.dto;
 
+
 public class AdminDTO {
 
     private String username;
@@ -27,5 +28,22 @@ public class AdminDTO {
 
     public void setRestaurantName(String restaurantName) {
         this.restaurantName = restaurantName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == this) {
+            return true;
+        }
+
+        if (!(o instanceof AdminDTO)) {
+            return false;
+        }
+
+        AdminDTO adminDTO = (AdminDTO) o;
+
+        return (adminDTO.username.compareTo(username) == 0) &&
+                (adminDTO.restaurantName.compareTo(restaurantName) == 0);
     }
 }
